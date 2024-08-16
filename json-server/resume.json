@@ -1,0 +1,80 @@
+{
+    "resumes": [
+      {
+        "id": 1,
+        "picture": "http://example.com/picture.jpg",
+        "fullName": "John Doe",
+        "email": "john.doe@example.com",
+        "phone": "123-456-7890",
+        "location": "New York, NY",
+        "summary": "Experienced software developer with expertise in full-stack development.",
+        "profiles": [
+          {
+            "platform": "LinkedIn",
+            "url": "http://linkedin.com/in/johndoe"
+          },
+          {
+            "platform": "GitHub",
+            "url": "http://github.com/johndoe"
+          }
+        ],
+        "experience": [
+          {
+            "companyName": "Tech Co",
+            "position": "Software Engineer",
+            "dateRange": "Jan 2021 - Present",
+            "companyLocation": "New York, NY",
+            "companyWebsite": "http://techco.com",
+            "summary": "Developed and maintained web applications."
+          }
+        ],
+        "education": [
+          {
+            "institutionName": "University X",
+            "typeOfStudy": "Bachelor's",
+            "areaOfStudy": "Computer Science",
+            "score": "3.8",
+            "dateRange": "Sep 2016 - Jun 2020",
+            "summary": "Graduated with honors."
+          }
+        ],
+        "skills": [
+          {
+            "name": "JavaScript",
+            "description": "Programming language for web development.",
+            "level": "Expert"
+          }
+        ],
+        "languages": [
+          {
+            "name": "English",
+            "description": "Native speaker.",
+            "level": "Fluent"
+          }
+        ],
+        "certifications": [
+          {
+            "certificationName": "Certified Web Developer",
+            "issuer": "Tech Academy",
+            "date": "Mar 2021",
+            "summary": "Certification for advanced web development skills."
+          }
+        ],
+        "interests": [
+          {
+            "name": "Open Source Contribution"
+          }
+        ],
+        "projects": [
+          {
+            "name": "Personal Website",
+            "description": "A personal portfolio website showcasing my work.",
+            "dateRange": "Feb 2021 - May 2021",
+            "githubLinks": "http://github.com/johndoe/personal-website",
+            "technologyUsed": "HTML, CSS, JavaScript"
+          }
+        ]
+      }
+    ]
+  }
+  

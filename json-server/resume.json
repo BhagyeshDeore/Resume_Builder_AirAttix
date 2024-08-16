@@ -67,7 +67,7 @@
         ],
         "projects": [
           {
-            "name": "Personal Website",
+            "Title": "Personal Website",
             "description": "A personal portfolio website showcasing my work.",
             "dateRange": "Feb 2021 - May 2021",
             "githubLinks": "http://github.com/johndoe/personal-website",

@@ -1,26 +1,144 @@
 <div class="resume-container">
     <div class="left-section">
-        <div class="personal-info">
-            <div class="picture-container">
-                
-                <img
-                    src="https://www.shutterstock.com/shutterstock/photos/548848999/display_1500/stock-vector-man-in-the-shirt-and-tie-businessman-avatar-or-male-face-icon-vector-illustration-548848999.jpg"
-                    alt="John Doe"
-                    class="profile-pic">
-               
-            </div>
-            
+        <div class="left-content">
+            <div class="personal-info">
+                <div class="picture-container">
+                    <img
+                        src="https://www.shutterstock.com/shutterstock/photos/548848999/display_1500/stock-vector-man-in-the-shirt-and-tie-businessman-avatar-or-male-face-icon-vector-illustration-548848999.jpg"
+                        alt="John Doe"
+                        class="profile-pic">
+                </div>
                 <h2>Bhagyesh Deore</h2>
-                <p>Mumbai, India </p>
+                <p>Mumbai, India</p>
                 <p>9146480034</p>
-                <p>bhageshdeore123gmail.com</p>
-                
-                
-            
-            
+                <a style="color: white;"
+                    href="mailto:bhageshdeore123@gmail.com">bhageshdeore123gmail.com</a>
+            </div>
+
+            <div class="skills-container">
+                <h2>Skills</h2>
+                <hr style="color: blue;">
+                <mat-list>
+                    <mat-list-item *ngFor="let skill of skills">
+                        <div class="skill-name">{{ skill.name }}</div>
+                        <div class="skill-level">&nbsp;&nbsp;-&nbsp;{{
+                            skill.level }}</div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+
+            <div class="interests-container">
+                <h2>Interests</h2>
+                <hr style="color: blue;">
+                <mat-list>
+                    <mat-list-item *ngFor="let interest of interests">
+                        <div class="interest-list">{{ interest }}</div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+
+            <div class="languages-container">
+                <h2>Languages</h2>
+                <hr style="color: blue;">
+                <mat-list>
+                    <mat-list-item *ngFor="let language of languages">
+                        <div class="language-name">{{ language.name }}</div>
+                        <div class="language-level">{{ language.level }}</div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
         </div>
     </div>
+
     <div class="right-section">
-        <!-- Right section content goes here -->
+        <div class="right-content">
+            <div class="summary-container">
+                <h2 class="summary-heading">Summary</h2>
+                <p class="summary-text">
+                    Experienced software developer with a strong background in
+                    building scalable web applications and a passion for
+                    learning new technologies. Adept at collaborating with
+                    cross-functional teams to deliver high-quality software
+                    solutions.
+                </p>
+            </div>
+            <div style="background-color: #fff;">
+                <div class="profiles-container">
+                    <h2>Profiles</h2>
+                    <hr>
+                    <ul class="profiles-list">
+                        <li *ngFor="let profile of profiles">
+                            {{profile.name}} - <a [href]="profile.url"
+                                target="_blank">{{ profile.url }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="experience">
+                    <h2>Experience</h2>
+                    <hr>
+                    <ul class="experience-list">
+                      <li *ngFor="let exp of experiences">
+                        <div class="experience-item">
+                          <div class="experience-header">
+                            <span class="company-name">{{ exp.companyName }}</span>
+                            <span class="date-range">{{ exp.dateRange }}</span>
+                          </div>
+                          <div class="experience-details">
+                            <span class="position">{{ exp.position }}</span>
+                            <span class="location">{{ exp.companyLocation }}</span>
+                          </div>
+                          <div class="company-website">
+                            <a [href]="exp.companyWebsite" target="_blank">{{exp.companyWebsite}}</a>
+                          </div>
+                          <p class="experience-summary">{{ exp.summary }}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="education">
+                    <h2>Education</h2>
+                    <hr>
+                    <ul class="education-list">
+                      <li *ngFor="let edu of education" class="education-item">
+                        <div class="education-header">
+                          <div class="institution-name">{{ edu.institutionName }}</div>
+                          <div class="date-range">{{ edu.dateRange }}</div>
+                        </div>
+                        <div class="education-details">
+                          <div class="area-of-study">{{ edu.areaOfStudy }}</div>
+                          <div class="type-of-study">{{ edu.studyType }}</div>
+                        </div>
+                        <div class="score">{{ edu.score }}</div>
+                        <div class="education-summary">{{ edu.summary }}</div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="projects-container">
+                    <h2>Projects</h2>
+                    <ul class="projects-list">
+                      <li class="project-item" *ngFor="let project of projects">
+                        <div class="project-header">
+                          <span class="project-title">{{ project.Title }}</span>
+                          <span class="project-date">{{ project.dateRange }}</span>
+                        </div>
+                        
+                        <div class="project-details">
+                          <span class="github-link">
+                            <a [href]="project.githubLinks" target="_blank">{{ project.githubLinks }}</a>
+                          </span>
+                        </div>
+                        <br>
+                        <div class="technology-used">
+                          <strong>Technology Used: </strong>{{ project.technologyUsed }}
+                        </div>
+                        <br>
+                        <div class="project-description">
+                         <strong>Description</strong> - {{ project.description }}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  
+            </div>
+        </div>
     </div>
-</div>

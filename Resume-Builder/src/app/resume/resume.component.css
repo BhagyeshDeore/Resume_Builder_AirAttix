@@ -14,7 +14,10 @@ hr {
 .resume-container {
     height: 100%;
     display: flex;
+    align-items: stretch;
+    
 }
+
 
 .left-section {
     width: 35%;

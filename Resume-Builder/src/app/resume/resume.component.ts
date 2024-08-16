@@ -9,6 +9,11 @@ export class ResumeComponent {
   skills = [
     { name: 'JavaScript', level: 'Intermediate' },
     { name: 'Angular', level: 'Advanced' },
+    { name: 'TypeScript', level: 'Intermediate' },
+    { name: 'TypeScript', level: 'Intermediate' },
+    { name: 'TypeScript', level: 'Intermediate' },
+    { name: 'TypeScript', level: 'Intermediate' },
+    
     
     // Add more skills as needed
   ];

@@ -1,3 +1,4 @@
+
 html, body {
     margin: 0;
     padding: 0;
@@ -9,28 +10,31 @@ hr {
     border: 1px solid rgb(185, 185, 235);
 }
 
-
-
 .resume-container {
-    height: 100%;
     display: flex;
     align-items: stretch;
-    
+    height: auto;   
+    min-height: 100vh;
+  
 }
 
 
 .left-section {
     width: 35%;
     background-color: rgb(212, 241, 243);
-    height: 100%;
+    height: auto;
+    min-height: 100vh;
+    
 }
 
 .left-content {
     background-color: rgb(212, 241, 243);
     font-family: 'Arial', sans-serif;
+    
 }
 
 .personal-info {
+    padding-top: 10px;
     padding-left: 20px;
     text-align: left;
     background-color: blue;
@@ -39,11 +43,11 @@ hr {
 }
 
 .picture-container {
-    padding-top: 5px;
+    
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    overflow: hidden;
+    padding-bottom: 10px;
 }
 
 .profile-pic {
@@ -95,18 +99,19 @@ a {
 }
 
 .right-section {
-    width: 65%;
-    background-color: rgb(212, 241, 243);
-    height: 100%;
-    
+  width: 65%;
+  background-color: #ffffff; 
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 
+
 .summary-container {
-    padding-left: 20px;
+  padding: 10px 20px;
     margin-bottom: 20px;
     background-color: rgb(212, 241, 243);
-    padding-right: 20px;
+    
 }
 
 .summary-heading {

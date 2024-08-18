@@ -1,0 +1,18 @@
+.resume-form-container {
+    padding: 16px;
+  }
+  
+  mat-card {
+    margin: 16px 0;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .submit-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  

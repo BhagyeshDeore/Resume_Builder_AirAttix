@@ -1,80 +1,119 @@
 {
-    "resumes": [
-      {
-        "id": 1,
-        "picture": "http://example.com/picture.jpg",
-        "fullName": "John Doe",
-        "email": "john.doe@example.com",
-        "phone": "123-456-7890",
-        "location": "New York, NY",
-        "summary": "Experienced software developer with expertise in full-stack development.",
-        "profiles": [
-          {
-            "platform": "LinkedIn",
-            "url": "http://linkedin.com/in/johndoe"
-          },
-          {
-            "platform": "GitHub",
-            "url": "http://github.com/johndoe"
-          }
-        ],
-        "experience": [
-          {
-            "companyName": "Tech Co",
-            "position": "Software Engineer",
-            "dateRange": "Jan 2021 - Present",
-            "companyLocation": "New York, NY",
-            "companyWebsite": "http://techco.com",
-            "summary": "Developed and maintained web applications."
-          }
-        ],
-        "education": [
-          {
-            "institutionName": "University X",
-            "typeOfStudy": "Bachelor's",
-            "areaOfStudy": "Computer Science",
-            "score": "3.8",
-            "dateRange": "Sep 2016 - Jun 2020",
-            "summary": "Graduated with honors."
-          }
-        ],
-        "skills": [
-          {
-            "name": "JavaScript",
-            "description": "Programming language for web development.",
-            "level": "Expert"
-          }
-        ],
-        "languages": [
-          {
-            "name": "English",
-            "description": "Native speaker.",
-            "level": "Fluent"
-          }
-        ],
-        "certifications": [
-          {
-            "certificationName": "Certified Web Developer",
-            "issuer": "Tech Academy",
-            "date": "Mar 2021",
-            "summary": "Certification for advanced web development skills."
-          }
-        ],
-        "interests": [
-          {
-            "name": "Open Source Contribution"
-          }
-        ],
-        "projects": [
-          {
-            "Title": "Personal Website",
-            "description": "A personal portfolio website showcasing my work.",
-            "dateRange": "Feb 2021 - May 2021",
-            "githubLinks": "http://github.com/johndoe/personal-website",
-            "technologyUsed": "HTML, CSS, JavaScript"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": "1",
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "username": "Bhagyesh",
+      "email": "bhagyesh@gmail.com",
+      "password": "password123"
+    }
+  ],
+  "personalInfo": [
+    {
+      "fullName": "Bhagyesh Deore",
+      "email": "john.doe@example.com",
+      "phone": "09146480034",
+      "location": "New York, NY",
+      "summary": "Experienced software developer with expertise in full-stack development.",
+      "id": "1"
+    },
+    {
+      "id": "7ec3",
+      "userId": "1",
+      "fullName": "Bhagyesh Deore",
+      "email": "bhagyeshdeore123@gmail.com",
+      "phone": "09146480034",
+      "location": "Jalgaon",
+      "summary": "ACACACAC"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "1",
+      "userId": "1",
+      "platform": "LinkedIn",
+      "url": "http://linkedin.com/in/johndoe"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "platform": "GitHub",
+      "url": "http://github.com/johndoe"
+    }
+  ],
+  "experience": [
+    {
+      "id": "1",
+      "userId": "1",
+      "companyName": "Tech Co",
+      "position": "Software Engineer",
+      "dateRange": "Jan 2021 - Present",
+      "companyLocation": "New York, NY",
+      "companyWebsite": "http://techco.com",
+      "summary": "Developed and maintained web applications."
+    }
+  ],
+  "education": [
+    {
+      "id": "1",
+      "userId": "1",
+      "institutionName": "University X",
+      "typeOfStudy": "Bachelor's",
+      "areaOfStudy": "Computer Science",
+      "score": "3.8",
+      "dateRange": "Sep 2016 - Jun 2020",
+      "summary": "Graduated with honors."
+    }
+  ],
+  "skills": [
+    {
+      "id": "1",
+      "userId": "1",
+      "name": "JavaScript",
+      "description": "Programming language for web development.",
+      "level": "Expert"
+    }
+  ],
+  "languages": [
+    {
+      "id": "1",
+      "userId": "1",
+      "name": "English",
+      "description": "Native speaker.",
+      "level": "Fluent"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "1",
+      "userId": "1",
+      "certificationName": "Certified Web Developer",
+      "issuer": "Tech Academy",
+      "date": "Mar 2021",
+      "summary": "Certification for advanced web development skills."
+    }
+  ],
+  "interests": [
+    {
+      "id": "1",
+      "userId": "1",
+      "name": "Open Source Contribution"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "Personal Website",
+      "description": "A personal portfolio website showcasing my work.",
+      "dateRange": "Feb 2021 - May 2021",
+      "githubLinks": "http://github.com/johndoe/personal-website",
+      "technologyUsed": "HTML, CSS, JavaScript"
+    }
+  ]
+}

@@ -1,86 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ResumeService } from '../Service/resume.service'; 
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css']
 })
-export class ResumeComponent {
-  skills = [
-    { name: 'JavaScript', level: 'Intermediate' },
-    { name: 'Angular', level: 'Advanced' },
-    { name: 'TypeScript', level: 'Intermediate' },
-    { name: 'TypeScript', level: 'Intermediate' },
-    { name: 'TypeScript', level: 'Intermediate' },
-    { name: 'TypeScript', level: 'Intermediate' },
-    
-    
-    // Add more skills as needed
-  ];
-  interests = [
-    'Coding',
-    'Traveling',
-    'Photography',
-    // Add more interests as needed
-  ];
-  languages = [
-    { name: 'English', level: 'Fluent' },
-    { name: 'Spanish', level: 'Intermediate' },
-    { name: 'French', level: 'Basic' },
-    // Add more languages as needed
-  ];
-  profiles = [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/your-profile' },
-    { name: 'GitHub', url: 'https://github.com/your-profile' },
-    { name: 'Personal Website', url: 'https://yourwebsite.com' }
-  ];
+export class ResumeComponent implements OnInit {
+  resume: any = {}; // This will hold the combined data
 
-  education = [
-    {
-      institutionName: 'University of Example',
-      studyType: 'Bachelor\'s Degree',
-      areaOfStudy: 'Computer Science',
-      dateRange: '2015 - 2019',
-      score: "7.8",
-      summary: 'Focused on software development and data structures.'
-    },
-    {
-      institutionName: 'Example Institute',
-      studyType: 'Master\'s Degree',
-      areaOfStudy: 'Software Engineering',
-      dateRange: '2019 - 2021',
-      score :"8.93",
-      summary: 'Specialized in software architecture and project management.'
-    }
-    // Add more education records as needed
-  ];
-  experiences = [
-    {
-      companyName: 'Example Company',
-      position: 'Software Developer',
-      dateRange: 'June 2020 - Present',
-      companyLocation: 'New York, USA',
-      companyWebsite: 'https://example.com',
-      summary: 'Developed and maintained web applications, collaborated with cross-functional teams, and implemented new features.'
-    },
-    {
-      companyName: 'Another Company',
-      position: 'Junior Developer',
-      dateRange: 'January 2018 - May 2020',
-      companyLocation: 'San Francisco, USA',
-      companyWebsite: 'https://anothercompany.com',
-      summary: 'Assisted in the development of mobile applications, performed debugging and testing, and participated in code reviews.'
-    }
-    // Add more experience records as needed
-  ];
+  constructor(private resumeService: ResumeService) {}
 
-  projects= [
-    {
-      "Title": "Personal Website",
-      "description": "A personal portfolio website showcasing my work.",
-      "dateRange": "Feb 2021 - May 2021",
-      "githubLinks": "http://github.com/johndoe/personal-website",
-      "technologyUsed": "HTML, CSS, JavaScript"
-    }
-  ]
+  ngOnInit(): void {
+    // Replace '1' with dynamic userId if necessary
+    const userId = '1'; 
+
+    forkJoin({
+      personalInfo: this.resumeService.getPersonalInfo(userId),
+      profiles: this.resumeService.getProfiles(userId),
+      experience: this.resumeService.getExperience(userId),
+      education: this.resumeService.getEducation(userId),
+      skills: this.resumeService.getSkills(userId),
+      languages: this.resumeService.getLanguages(userId),
+      certifications: this.resumeService.getCertifications(userId),
+      interests: this.resumeService.getInterests(userId),
+      projects: this.resumeService.getProjects(userId)
+    }).subscribe(data => {
+      // Combine data into a single object
+      this.resume = {
+        personalInfo: data.personalInfo[0],
+        profiles: data.profiles,
+        experience: data.experience,
+        education: data.education,
+        skills: data.skills,
+        languages: data.languages,
+        certifications: data.certifications,
+        interests: data.interests,
+        projects: data.projects
+      };
+    });
+  }
 }

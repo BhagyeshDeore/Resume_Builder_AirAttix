@@ -1,0 +1,103 @@
+<!-- <div class="resume-form-container">
+    <mat-card>
+      <mat-card-title>Resume Form</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
+  
+         
+          <mat-form-field appearance="fill">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullName" />
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" />
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location" />
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Summary</mat-label>
+            <textarea matInput formControlName="summary"></textarea>
+          </mat-form-field>
+  
+          
+          <mat-card>
+            <mat-card-title>Profiles</mat-card-title>
+            <mat-card-content>
+              <div *ngFor="let profile of profiles; let i = index">
+                <mat-form-field appearance="fill">
+                  <mat-label>Platform</mat-label>
+                  <input matInput [(ngModel)]="profile.platform" />
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill">
+                  <mat-label>URL</mat-label>
+                  <input matInput [(ngModel)]="profile.url" />
+                </mat-form-field>
+  
+                <button mat-raised-button color="warn" (click)="removeProfile(i)">Remove</button>
+              </div>
+              <button mat-raised-button color="primary" (click)="addProfile()">Add Profile</button>
+            </mat-card-content>
+          </mat-card>
+  
+          
+          <mat-card>
+            <mat-card-title>Experience</mat-card-title>
+            <mat-card-content>
+              <div *ngFor="let exp of experience; let i = index">
+                <mat-form-field appearance="fill">
+                  <mat-label>Company Name</mat-label>
+                  <input matInput [(ngModel)]="exp.companyName" />
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill">
+                  <mat-label>Position</mat-label>
+                  <input matInput [(ngModel)]="exp.position" />
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill">
+                  <mat-label>Date Range</mat-label>
+                  <input matInput [(ngModel)]="exp.dateRange" />
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill">
+                  <mat-label>Company Location</mat-label>
+                  <input matInput [(ngModel)]="exp.companyLocation" />
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill">
+                  <mat-label>Company Website</mat-label>
+                  <input matInput [(ngModel)]="exp.companyWebsite" />
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill">
+                  <mat-label>Summary</mat-label>
+                  <textarea matInput [(ngModel)]="exp.summary"></textarea>
+                </mat-form-field>
+  
+                <button mat-raised-button color="warn" (click)="removeExperience(i)">Remove</button>
+              </div>
+              <button mat-raised-button color="primary" (click)="addExperience()">Add Experience</button>
+            </mat-card-content>
+          </mat-card>
+  
+          
+          <div class="submit-container">
+            <button mat-raised-button color="primary" type="submit">Save</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+   -->

@@ -1,1 +1,77 @@
-<p>experience works!</p>
+<div class="container mt-4">
+    <div class="form-container rounded p-4 shadow">
+      <h2 class="text-center">Experience</h2>
+      <br>
+      <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+        <!-- Experiences -->
+        <div formArrayName="experiences">
+          <div *ngFor="let experience of experiences.controls; let i = index" [formGroupName]="i" class="mb-3">
+            <div class="mb-3">
+              <label for="companyName{{i}}" class="form-label">Company Name</label>
+              <input 
+                type="text" 
+                id="companyName{{i}}" 
+                formControlName="companyName" 
+                class="form-control" 
+                placeholder="Enter company name"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="position{{i}}" class="form-label">Position</label>
+              <input 
+                type="text" 
+                id="position{{i}}" 
+                formControlName="position" 
+                class="form-control" 
+                placeholder="Enter position"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="dateRange{{i}}" class="form-label">Date Range</label>
+              <input 
+                type="text" 
+                id="dateRange{{i}}" 
+                formControlName="dateRange" 
+                class="form-control" 
+                placeholder="Enter date range"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="companyLocation{{i}}" class="form-label">Company Location</label>
+              <input 
+                type="text" 
+                id="companyLocation{{i}}" 
+                formControlName="companyLocation" 
+                class="form-control" 
+                placeholder="Enter company location"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="companyWebsite{{i}}" class="form-label">Company Website</label>
+              <input 
+                type="url" 
+                id="companyWebsite{{i}}" 
+                formControlName="companyWebsite" 
+                class="form-control" 
+                placeholder="Enter company website"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="summary{{i}}" class="form-label">Summary</label>
+              <textarea 
+                id="summary{{i}}" 
+                formControlName="summary" 
+                class="form-control" 
+                placeholder="Enter summary"
+              ></textarea>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="removeExperience(i)">Remove</button>
+          </div>
+        </div>
+  
+        <button type="button" class="btn btn-primary" (click)="addExperience()">Add Experience</button>
+        <button type="submit" class="btn btn-success w-100 mt-3" [disabled]="experienceForm.invalid">Save</button>
+      </form>
+    </div>
+  </div>
+  

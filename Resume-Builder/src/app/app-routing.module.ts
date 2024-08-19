@@ -10,6 +10,7 @@ import { InterestsComponent } from './interests/interests.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ResumeformComponent } from './resumeform/resumeform.component';
+import { LangaugeComponent } from './langauge/langauge.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: "interests",
     component: InterestsComponent
+  },
+  {
+    path : "langauge",
+    component : LangaugeComponent
   },
   {
     path: "projects",

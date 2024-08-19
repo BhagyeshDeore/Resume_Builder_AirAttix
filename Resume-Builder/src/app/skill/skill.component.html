@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <div class="form-container rounded p-4 shadow">
+      <h2 class="text-center">Skills</h2>
+      <br>
+      <form [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+        <div formArrayName="skills">
+          <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i">
+            <div class="mb-3">
+              <label for="name{{i}}" class="form-label">Name</label>
+              <input type="text" id="name{{i}}" formControlName="name" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="description{{i}}" class="form-label">Description</label>
+              <input type="text" id="description{{i}}" formControlName="description" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="level{{i}}" class="form-label">Level</label>
+              <input type="text" id="level{{i}}" formControlName="level" class="form-control">
+            </div>
+            <button type="button" class="btn btn-danger" (click)="removeSkill(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="addSkill()">Add Skill</button>
+        <button type="submit" class="btn btn-success w-100 mt-3" [disabled]="skillForm.invalid">Save</button>
+      </form>
+    </div>
+  </div>
+  

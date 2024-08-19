@@ -25,6 +25,7 @@ import { InterestsComponent } from './interests/interests.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { ResumeformComponent } from './resumeform/resumeform.component';
+import { LangaugeComponent } from './langauge/langauge.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ResumeformComponent } from './resumeform/resumeform.component';
     CertificationsComponent,
     InterestsComponent,
     ProjectsComponent,
-    ResumeformComponent
+    ResumeformComponent,
+    LangaugeComponent
   ],
   imports: [
     BrowserModule,

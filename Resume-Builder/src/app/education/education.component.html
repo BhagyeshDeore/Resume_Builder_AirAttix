@@ -1,1 +1,79 @@
 <p>education works!</p>
+<div class="container mt-4">
+    <div class="form-container rounded p-4 shadow">
+      <h2 class="text-center">Education</h2>
+      <br>
+      <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Education -->
+        <div formArrayName="education">
+          <div *ngFor="let edu of education.controls; let i = index" [formGroupName]="i" class="mb-3">
+            <div class="mb-3">
+              <label for="institutionName{{i}}" class="form-label">Institution Name</label>
+              <input 
+                type="text" 
+                id="institutionName{{i}}" 
+                formControlName="institutionName" 
+                class="form-control" 
+                placeholder="Enter institution name"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="typeOfStudy{{i}}" class="form-label">Type of Study</label>
+              <input 
+                type="text" 
+                id="typeOfStudy{{i}}" 
+                formControlName="typeOfStudy" 
+                class="form-control" 
+                placeholder="Enter type of study"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="areaOfStudy{{i}}" class="form-label">Area of Study</label>
+              <input 
+                type="text" 
+                id="areaOfStudy{{i}}" 
+                formControlName="areaOfStudy" 
+                class="form-control" 
+                placeholder="Enter area of study"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="score{{i}}" class="form-label">Score</label>
+              <input 
+                type="text" 
+                id="score{{i}}" 
+                formControlName="score" 
+                class="form-control" 
+                placeholder="Enter score"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="dateRange{{i}}" class="form-label">Date Range</label>
+              <input 
+                type="text" 
+                id="dateRange{{i}}" 
+                formControlName="dateRange" 
+                class="form-control" 
+                placeholder="Enter date range"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="summary{{i}}" class="form-label">Summary</label>
+              <textarea 
+                id="summary{{i}}" 
+                formControlName="summary" 
+                class="form-control" 
+                placeholder="Enter summary"
+              ></textarea>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="removeEducation(i)">Remove</button>
+          </div>
+        </div>
+  
+        <button type="button" class="btn btn-primary" (click)="addEducation()">Add Education</button>
+        <button type="submit" class="btn btn-success w-100 mt-3" [disabled]="educationForm.invalid">Save</button>
+      </form>
+    </div>
+  </div>
+  

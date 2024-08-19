@@ -15,14 +15,6 @@
   ],
   "personalInfo": [
     {
-      "fullName": "Bhagyesh Deore",
-      "email": "john.doe@example.com",
-      "phone": "09146480034",
-      "location": "New York, NY",
-      "summary": "Experienced software developer with expertise in full-stack development.",
-      "id": "1"
-    },
-    {
       "id": "7ec3",
       "userId": "1",
       "fullName": "Bhagyesh Deore",
@@ -34,86 +26,144 @@
   ],
   "profiles": [
     {
-      "id": "1",
       "userId": "1",
-      "platform": "LinkedIn",
-      "url": "http://linkedin.com/in/johndoe"
-    },
-    {
-      "id": "2",
-      "userId": "1",
-      "platform": "GitHub",
-      "url": "http://github.com/johndoe"
+      "profiles": [
+        {
+          "platform": "xadad",
+          "url": "http://localhost:4200/profiles"
+        },
+        {
+          "platform": "wdwdwd",
+          "url": "http://github.com/BhagyeshDeore"
+        },
+        {
+          "platform": "dwadad",
+          "url": "https://www.linkedin.com/in/bhagyesh-deore-04b81b208/?originalSubdomain=in"
+        }
+      ],
+      "id": "4c4e"
     }
   ],
   "experience": [
     {
-      "id": "1",
       "userId": "1",
-      "companyName": "Tech Co",
-      "position": "Software Engineer",
-      "dateRange": "Jan 2021 - Present",
-      "companyLocation": "New York, NY",
-      "companyWebsite": "http://techco.com",
-      "summary": "Developed and maintained web applications."
+      "experience": [
+        {
+          "companyName": "Tech Co",
+          "position": "Software Engineer",
+          "dateRange": "Jan 2021 - Present",
+          "companyLocation": "New York, NY",
+          "companyWebsite": "http://techco.com",
+          "summary": "Developed and maintained web applications."
+        },
+        {
+          "companyName": "AirAttix Private ltd",
+          "position": "Full Stack intern",
+          "dateRange": "July 29 - present ",
+          "companyLocation": "Pune",
+          "companyWebsite": "https://www.airattix.com/",
+          "summary": "working on angular"
+        }
+      ],
+      "id": "8d71"
     }
   ],
   "education": [
     {
-      "id": "1",
       "userId": "1",
-      "institutionName": "University X",
-      "typeOfStudy": "Bachelor's",
-      "areaOfStudy": "Computer Science",
-      "score": "3.8",
-      "dateRange": "Sep 2016 - Jun 2020",
-      "summary": "Graduated with honors."
+      "education": [
+        {
+          "institutionName": "University X",
+          "typeOfStudy": "Bachelor's",
+          "areaOfStudy": "Computer Science",
+          "score": "3.8",
+          "dateRange": "Sep 2016 - Jun 2020",
+          "summary": "Graduated with honors."
+        },
+        {
+          "institutionName": "University Y",
+          "typeOfStudy": "Master's",
+          "areaOfStudy": "Software Engineering",
+          "score": "4.0",
+          "dateRange": "Sep 2020 - Jun 2022",
+          "summary": "Completed with distinction."
+        }
+      ],
+      "id": "jdkdi01"
     }
   ],
   "skills": [
     {
-      "id": "1",
       "userId": "1",
-      "name": "JavaScript",
-      "description": "Programming language for web development.",
-      "level": "Expert"
+      "skills": [
+        {
+          "name": "Core Java",
+          "description": "programming langauge",
+          "level": "Expert"
+        },
+        {
+          "name": "javascript",
+          "description": "scripting langauge",
+          "level": "intermediate"
+        }
+      ],
+      "id": "8193"
     }
   ],
   "languages": [
     {
       "id": "1",
       "userId": "1",
-      "name": "English",
-      "description": "Native speaker.",
-      "level": "Fluent"
+      "languages": [
+        {
+          "name": "English",
+          "description": "Native speaker.",
+          "level": "Fluent"
+        }
+      ]
     }
   ],
   "certifications": [
-    {
-      "id": "1",
-      "userId": "1",
-      "certificationName": "Certified Web Developer",
-      "issuer": "Tech Academy",
-      "date": "Mar 2021",
-      "summary": "Certification for advanced web development skills."
-    }
-  ],
+  {
+    "userId": "1",
+    "certifications": [
+      {
+        "certificationName": "Certified Web Developer",
+        "issuer": "Tech Academy",
+        "date": "Mar 2021",
+        "summary": "Certification for advanced web development skills."
+      }
+    ],
+    "id": "1"
+  }
+]
+,
   "interests": [
-    {
-      "id": "1",
-      "userId": "1",
-      "name": "Open Source Contribution"
-    }
-  ],
+  {
+    "userId": "1",
+    "interests": [
+      {
+        "name": "Open Source Contribution"
+      }
+    ],
+    "id": "1"
+  }
+]
+,
   "projects": [
-    {
-      "id": "1",
-      "userId": "1",
-      "title": "Personal Website",
-      "description": "A personal portfolio website showcasing my work.",
-      "dateRange": "Feb 2021 - May 2021",
-      "githubLinks": "http://github.com/johndoe/personal-website",
-      "technologyUsed": "HTML, CSS, JavaScript"
-    }
-  ]
+  {
+    "userId": "1",
+    "projects": [
+      {
+        "title": "Personal Website",
+        "description": "A personal portfolio website showcasing my work.",
+        "dateRange": "Feb 2021 - May 2021",
+        "githubLinks": "http://github.com/johndoe/personal-website",
+        "technologyUsed": "HTML, CSS, JavaScript"
+      }
+    ],
+    "id": "1"
+  }
+]
+
 }

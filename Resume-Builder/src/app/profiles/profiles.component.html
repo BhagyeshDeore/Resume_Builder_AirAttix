@@ -1,1 +1,39 @@
-<p>profiles works!</p>
+<div class="container mt-4">
+    <div class="form-container rounded p-4 shadow">
+      <h2 class="text-center">Profiles</h2>
+      <br>
+      <form [formGroup]="profilesForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Profiles -->
+        <div formArrayName="profiles">
+          <div *ngFor="let profile of profiles.controls; let i = index" [formGroupName]="i" class="mb-3">
+            <div class="mb-3">
+              <label for="platform{{i}}" class="form-label">Platform</label>
+              <input 
+                type="text" 
+                id="platform{{i}}" 
+                formControlName="platform" 
+                class="form-control" 
+                placeholder="Enter platform name"
+              >
+            </div>
+            <div class="mb-3">
+              <label for="url{{i}}" class="form-label">URL</label>
+              <input 
+                type="url" 
+                id="url{{i}}" 
+                formControlName="url" 
+                class="form-control" 
+                placeholder="Enter URL"
+              >
+            </div>
+            <button type="button" class="btn btn-danger" (click)="removeProfile(i)">Remove</button>
+          </div>
+        </div>
+  
+        <button type="button" class="btn btn-primary" (click)="addProfile()">Add Profile</button>
+        <button type="submit" class="btn btn-success w-100 mt-3" [disabled]="profilesForm.invalid">Save</button>
+      </form>
+    </div>
+  </div>
+  

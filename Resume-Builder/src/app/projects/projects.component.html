@@ -1,1 +1,67 @@
-<p>projects works!</p>
+<div class="container mt-4">
+  <div class="form-container rounded p-4 shadow">
+    <h2 class="text-center">Projects</h2>
+    <br>
+    <form [formGroup]="projectsForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Projects -->
+      <div formArrayName="projects">
+        <div *ngFor="let proj of projects.controls; let i = index" [formGroupName]="i" class="mb-3">
+          <div class="mb-3">
+            <label for="title{{i}}" class="form-label">Title</label>
+            <input 
+              type="text" 
+              id="title{{i}}" 
+              formControlName="title" 
+              class="form-control" 
+              placeholder="Enter project title"
+            >
+          </div>
+          <div class="mb-3">
+            <label for="description{{i}}" class="form-label">Description</label>
+            <textarea 
+              id="description{{i}}" 
+              formControlName="description" 
+              class="form-control" 
+              placeholder="Enter project description"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="dateRange{{i}}" class="form-label">Date Range</label>
+            <input 
+              type="text" 
+              id="dateRange{{i}}" 
+              formControlName="dateRange" 
+              class="form-control" 
+              placeholder="Enter date range"
+            >
+          </div>
+          <div class="mb-3">
+            <label for="githubLinks{{i}}" class="form-label">GitHub Links</label>
+            <input 
+              type="text" 
+              id="githubLinks{{i}}" 
+              formControlName="githubLinks" 
+              class="form-control" 
+              placeholder="Enter GitHub links"
+            >
+          </div>
+          <div class="mb-3">
+            <label for="technologyUsed{{i}}" class="form-label">Technology Used</label>
+            <input 
+              type="text" 
+              id="technologyUsed{{i}}" 
+              formControlName="technologyUsed" 
+              class="form-control" 
+              placeholder="Enter technologies used"
+            >
+          </div>
+          <button type="button" class="btn btn-danger" (click)="removeProject(i)">Remove</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="addProject()">Add Project</button>
+      <button type="submit" class="btn btn-success w-100 mt-3" [disabled]="projectsForm.invalid">Save</button>
+    </form>
+  </div>
+</div>

@@ -26,6 +26,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { ResumeformComponent } from './resumeform/resumeform.component';
 import { LangaugeComponent } from './langauge/langauge.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { LangaugeComponent } from './langauge/langauge.component';
     InterestsComponent,
     ProjectsComponent,
     ResumeformComponent,
-    LangaugeComponent
+    LangaugeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

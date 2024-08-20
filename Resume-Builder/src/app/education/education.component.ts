@@ -9,7 +9,7 @@ import { ResumeService } from '../Service/resume.service';
 })
 export class EducationComponent implements OnInit {
   educationForm: FormGroup;
-  userId: string = this.resumeService.userId;
+  userId : string = this.resumeService.userId;
   existingEducationId: string | null = null;
 
   constructor(private fb: FormBuilder, private resumeService: ResumeService) {

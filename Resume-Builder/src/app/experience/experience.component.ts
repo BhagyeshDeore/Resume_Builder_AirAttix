@@ -47,10 +47,9 @@ export class ExperienceComponent implements OnInit {
         if (data && data.length > 0) {
           const experiencesData = data.find(item => item.userId === this.userId);
           if (experiencesData && experiencesData.experience) {
-            this.existingExperienceId = experiencesData.id; // Store the ID for updates
+            this.existingExperienceId = experiencesData.id; 
             experiencesData.experience.forEach((exp: { companyName: any; position: any; dateRange: any; companyLocation: any; companyWebsite: any; summary: any; }) => {
               this.experiences.push(this.fb.group({
-   // Ensure ID is available for each experience
                 companyName: [exp.companyName, Validators.required],
                 position: [exp.position, Validators.required],
                 dateRange: [exp.dateRange, Validators.required],

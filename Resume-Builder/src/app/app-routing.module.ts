@@ -11,10 +11,19 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ResumeformComponent } from './resumeform/resumeform.component';
 import { LangaugeComponent } from './langauge/langauge.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path : "",
+    component :LoginComponent
+  },
+  {
+    path : "login",
+    component :LoginComponent
+  },
+  {
+    path: "personal-info",
     component: PersonalInfoComponent
   },
   {

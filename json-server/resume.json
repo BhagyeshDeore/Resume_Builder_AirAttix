@@ -11,6 +11,12 @@
       "username": "Bhagyesh",
       "email": "bhagyesh@gmail.com",
       "password": "password123"
+    },
+    {
+      "id": "3",
+      "username": "Bhagyesh",
+      "email": "bhagyeshdeore123@gmail.com",
+      "password": "Bhagyesh@123"
     }
   ],
   "personalInfo": [
@@ -22,6 +28,15 @@
       "phone": "09146480034",
       "location": "Jalgaon",
       "summary": "ACACACAC"
+    },
+    {
+      "id": "7e3",
+      "userId": "3",
+      "fullName": "Bhagyesh Deore",
+      "email": "bhagyeshdeore123@gmail.com",
+      "phone": "09146480034",
+      "location": "Jalgaon",
+      "summary": "Quick learner with academic abilities and technical knowledge to succeed in different roles. Ready to expand horizons with additional knowledge and abilities gained from training and experience. Always ready to help others and use abilities to support team goals."
     }
   ],
   "profiles": [
@@ -42,6 +57,20 @@
         }
       ],
       "id": "4c4e"
+    },
+    {
+      "userId": "3",
+      "profiles": [
+        {
+          "platform": "LinkedIn",
+          "url": "https://www.linkedin.com/in/bhagyesh-deore-04b81b208/?originalSubdomain=in"
+        },
+        {
+          "platform": "GitHub",
+          "url": "https://github.com/BhagyeshDeore"
+        }
+      ],
+      "id": "4e4e"
     }
   ],
   "experience": [
@@ -66,6 +95,20 @@
         }
       ],
       "id": "8d71"
+    },
+    {
+      "userId": "3",
+      "experience": [
+        {
+          "companyName": "AirAttix Storage Private Ltd",
+          "position": "Full Stack Intern",
+          "dateRange": "July 29 - Present",
+          "companyLocation": "Pune",
+          "companyWebsite": "https://www.airattix.com/",
+          "summary": "Working on Angular and Golang"
+        }
+      ],
+      "id": "8a71"
     }
   ],
   "education": [
@@ -90,6 +133,36 @@
         }
       ],
       "id": "jdkdi01"
+    },
+    {
+      "userId": "3",
+      "education": [
+        {
+          "institutionName": "Centre for Development of Advanced Computing (CDAC), Mumbai",
+          "typeOfStudy": "PG-Diploma",
+          "areaOfStudy": "Advanced Computing",
+          "score": "N/A",
+          "dateRange": "Sept 2023 - Feb 2024",
+          "summary": "Full Stack Developer"
+        },
+        {
+          "institutionName": "NBN Sinhgad School Of Engineering, Pune",
+          "typeOfStudy": "Bachelor's",
+          "areaOfStudy": "Mechanical Engineering",
+          "score": "82.04%",
+          "dateRange": "July 2019 - Aug 2022",
+          "summary": "Engineering"
+        },
+        {
+          "institutionName": "G. H. Raisoni Polytechnic, Jalgaon",
+          "typeOfStudy": "Diploma",
+          "areaOfStudy": "Mechanical Engineering",
+          "score": "65.29%",
+          "dateRange": "Aug 2016 - May 2019",
+          "summary": "Diploma in Mechanical Engineering"
+        }
+      ],
+      "id": "jdfdi01"
     }
   ],
   "skills": [
@@ -108,62 +181,180 @@
         }
       ],
       "id": "8193"
+    },
+    {
+      "userId": "3",
+      "skills": [
+        {
+          "name": "Core Java",
+          "description": "Programming language",
+          "level": "Expert"
+        },
+        {
+          "name": "JavaScript",
+          "description": "Scripting language",
+          "level": "Intermediate"
+        },
+        {
+          "name": "Spring Boot",
+          "description": "Java framework",
+          "level": "Intermediate"
+        },
+        {
+          "name": "ReactJs",
+          "description": "JavaScript library for building user interfaces",
+          "level": "Intermediate"
+        },
+        {
+          "name": "MySQL",
+          "description": "Relational database management system",
+          "level": "Intermediate"
+        },
+        {
+          "name": "MongoDB",
+          "description": "NoSQL database",
+          "level": "Intermediate"
+        },
+        {
+          "name": "Problem Solving",
+          "description": "Analytical skill",
+          "level": "Expert"
+        }
+      ],
+      "id": "8q93"
     }
   ],
   "languages": [
     {
-      "id": "1",
       "userId": "1",
       "languages": [
         {
           "name": "English",
           "description": "Native speaker.",
           "level": "Fluent"
+        },
+        {
+          "name": "french",
+          "description": "NA",
+          "level": "intermediate"
         }
-      ]
+      ],
+      "id": "1"
+    },
+    {
+      "userId": "3",
+      "languages": [
+        {
+          "name": "English",
+          "description": "Native speaker.",
+          "level": "Fluent"
+        },
+        {
+          "name": "Hindi",
+          "description": "Native speaker.",
+          "level": "Fluent"
+        },
+        {
+          "name": "Marathi",
+          "description": "Native speaker.",
+          "level": "Fluent"
+        }
+      ],
+      "id": "5"
     }
   ],
   "certifications": [
-  {
-    "userId": "1",
-    "certifications": [
-      {
-        "certificationName": "Certified Web Developer",
-        "issuer": "Tech Academy",
-        "date": "Mar 2021",
-        "summary": "Certification for advanced web development skills."
-      }
-    ],
-    "id": "1"
-  }
-]
-,
+    {
+      "userId": "1",
+      "certifications": [
+        {
+          "certificationName": "Certified Web Developer",
+          "issuer": "Tech Academy",
+          "date": "Mar 2021",
+          "summary": "Certification for advanced web development skills."
+        }
+      ],
+      "id": "1"
+    }
+  ],
   "interests": [
-  {
-    "userId": "1",
-    "interests": [
-      {
-        "name": "Open Source Contribution"
-      }
-    ],
-    "id": "1"
-  }
-]
-,
+    {
+      "userId": "1",
+      "interests": [
+        {
+          "name": "Open Source Contribution"
+        },
+        {
+          "name": "Learn New things from youtube"
+        },
+        {
+          "name": "watch anime"
+        }
+      ],
+      "id": "1"
+    },
+    {
+      "userId": "3",
+      "interests": [
+        {
+          "name": "Open Source Contribution"
+        },
+        {
+          "name": "Learn new things from YouTube"
+        },
+        {
+          "name": "Skating"
+        },
+        {
+          "name": "Swimming"
+        },
+        {
+          "name": "Watch Anime"
+        }
+      ],
+      "id": "64"
+    }
+  ],
   "projects": [
-  {
-    "userId": "1",
-    "projects": [
-      {
-        "title": "Personal Website",
-        "description": "A personal portfolio website showcasing my work.",
-        "dateRange": "Feb 2021 - May 2021",
-        "githubLinks": "http://github.com/johndoe/personal-website",
-        "technologyUsed": "HTML, CSS, JavaScript"
-      }
-    ],
-    "id": "1"
-  }
-]
-
+    {
+      "userId": "1",
+      "projects": [
+        {
+          "title": "Personal Website",
+          "description": "A personal portfolio website showcasing my work.",
+          "dateRange": "Feb 2021 - May 2021",
+          "githubLinks": "http://github.com/johndoe/personal-website",
+          "technologyUsed": "HTML, CSS, JavaScript"
+        },
+        {
+          "title": "code munch",
+          "description": "coding platform",
+          "dateRange": "Feb 2022 - May 2022",
+          "githubLinks": "http://github.com/johndoe/personal-website",
+          "technologyUsed": "HTML, CSS, JavaScript"
+        }
+      ],
+      "id": "1"
+    },
+    {
+      "userId": "3",
+      "projects": [
+        {
+          "title": "Code Munch",
+          "description": "A web application for hosting coding contests.",
+          "dateRange": "Dec 2023 - Jan 2024",
+          "githubLinks": "https://github.com/BhagyeshDeore/ADV-JAVA-Project",
+          "technologyUsed": "Springboot, ReactJs, MySQL"
+        },
+        {
+          "title": "Voting Application",
+          "description": "A fully functional voting/polling application.",
+          "dateRange": "Nov 2023 - Dec 2023",
+          "githubLinks": "https://github.com/BhagyeshDeore/WPT-Voters-App-Project",
+          "technologyUsed": "ReactJs, Node.js, Express.js, MongoDB"
+        }
+      ],
+      "id": "shs"
+    }
+  ]
 }

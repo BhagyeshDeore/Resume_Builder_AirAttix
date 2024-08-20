@@ -47,24 +47,29 @@ export class PersonalInfoComponent implements OnInit {
 
   onSubmit(): void {
     if (this.personalInfoForm.valid) {
-      const formData = this.personalInfoForm.value;
+      const formData = { userId: this.userId, ...this.personalInfoForm.value };
+  
       if (this.existingPersonalInfo && this.existingPersonalInfo.id) {
-        // Update existing record
-        this.resumeService.updatePersonalInfo(this.userId, formData).subscribe({
-          next: (response) => {alert('Personal info updated successfully!'); console.log("response",response)},
+        // Update existing record using personal info ID
+        this.resumeService.updatePersonalInfo(this.existingPersonalInfo.id, formData).subscribe({
+          next: (response) => {
+            alert('Personal info updated successfully!');
+            console.log("response", response);
+          },
           error: (err) => console.error('Failed to update personal info:', err)
         });
       } else {
         // Create new record
-        this.resumeService.createPersonalInfo({ userId: this.userId, ...formData }).subscribe({
+        this.resumeService.createPersonalInfo(formData).subscribe({
           next: (response) => {
-            console.log("responce",response)
             alert('Personal info created successfully!');
-           
+            console.log("response", response);
           },
           error: (err) => console.error('Failed to create personal info:', err)
         });
       }
     }
   }
+  
+  
 }

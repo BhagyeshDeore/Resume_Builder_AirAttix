@@ -27,8 +27,8 @@ user = this.userString ? JSON.parse(this.userString) : null;
     return this.http.get<any[]>(`${this.baseUrl}/personalInfo?userId=${userId}`);
   }
 
-  updatePersonalInfo(userId: string, personalInfo: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/personalInfo/${userId}`, personalInfo);
+  updatePersonalInfo(id: string, personalInfo: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/personalInfo/${id}`, personalInfo);
   }
 
   createPersonalInfo(personalInfo: any): Observable<any> {

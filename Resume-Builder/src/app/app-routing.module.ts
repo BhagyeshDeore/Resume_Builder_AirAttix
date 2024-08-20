@@ -12,6 +12,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { ResumeformComponent } from './resumeform/resumeform.component';
 import { LangaugeComponent } from './langauge/langauge.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path : "login",
     component :LoginComponent
+  },
+  {
+    path:"register",
+    component:RegisterComponent
   },
   {
     path: "personal-info",

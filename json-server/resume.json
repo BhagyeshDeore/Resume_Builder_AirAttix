@@ -17,6 +17,12 @@
       "username": "Bhagyesh",
       "email": "bhagyeshdeore123@gmail.com",
       "password": "Bhagyesh@123"
+    },
+    {
+      "id": "9709",
+      "username": "Nitish Kumar",
+      "email": "nitishkumar@gmail.com",
+      "password": "Bhagyesh@123"
     }
   ],
   "personalInfo": [
@@ -37,6 +43,15 @@
       "location": "Pune",
       "summary": "Quick learner with academic abilities and technical knowledge to succeed in different roles. Ready to expand horizons with additional knowledge and abilities gained from training and experience. Always ready to help others and use abilities to support team goals.",
       "id": "7e3"
+    },
+    {
+      "id": "f556",
+      "userId": "9709",
+      "fullName": "Nitish Kumar",
+      "email": "nitishkumar@gmail.com",
+      "phone": "8826223040",
+      "location": "Delhi",
+      "summary": "working at airattix"
     }
   ],
   "profiles": [
@@ -222,6 +237,22 @@
         }
       ],
       "id": "8q93"
+    },
+    {
+      "id": "2a42",
+      "userId": "9709",
+      "skills": [
+        {
+          "name": "javascript",
+          "description": "scripting langauge",
+          "level": "Intermediate"
+        },
+        {
+          "name": "angular",
+          "description": "framework",
+          "level": "Basic"
+        }
+      ]
     }
   ],
   "languages": [

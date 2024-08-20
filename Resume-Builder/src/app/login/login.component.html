@@ -1,24 +1,39 @@
+
 <div class="container">
-    <h2>Login</h2>
+    <br>
+    <h2 class="text-center">Login</h2>
+    <br>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" type="email" class="form-control" formControlName="email" />
-        <div *ngIf="emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)" class="invalid-feedback">
-          <div *ngIf="emailControl?.errors?.['required']">Email is required.</div>
-          <div *ngIf="emailControl?.errors?.['email']">Invalid email format.</div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" class="form-control"
+                formControlName="email" />
+            <div
+                *ngIf="emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)"
+                class="invalid-feedback">
+                <div *ngIf="emailControl?.errors?.['required']">Email is
+                    required.</div>
+                <div *ngIf="emailControl?.errors?.['email']">Invalid email
+                    format.</div>
+            </div>
         </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" type="password" class="form-control" formControlName="password" />
-        <div *ngIf="passwordControl?.invalid && (passwordControl?.dirty || passwordControl?.touched)" class="invalid-feedback">
-          <div *ngIf="passwordControl?.errors?.['required']">Password is required.</div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" class="form-control"
+                formControlName="password" />
+            <div
+                *ngIf="passwordControl?.invalid && (passwordControl?.dirty || passwordControl?.touched)"
+                class="invalid-feedback">
+                <div *ngIf="passwordControl?.errors?.['required']">Password is
+                    required.</div>
+            </div>
         </div>
-      </div>
-  
-      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+        <div class="btn">
+            <button type="submit" class="btn btn-primary center"
+                [disabled]="loginForm.invalid">Login</button>
+        </div>
+
     </form>
-  </div>
-  
+
+</div>

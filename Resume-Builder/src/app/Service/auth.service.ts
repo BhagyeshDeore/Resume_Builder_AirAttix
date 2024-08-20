@@ -37,17 +37,17 @@ export class AuthService {
   }
 
  
-  register(user: { username: string, email: string, password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/register`, user);
+  register(userData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, userData);
   }
 
-  // Retrieve user ID from localStorage
+  
   getUserId(): string {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user).id : '';
   }
 
-  // Logout user
+  
   logout(): void {
     localStorage.removeItem('user');
     this.router.navigate(["/login"]);

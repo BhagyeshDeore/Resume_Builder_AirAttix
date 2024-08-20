@@ -60,13 +60,13 @@ export class InterestsComponent implements OnInit {
       const interestsData = { userId: this.userId, interests: formInterests };
 
       if (this.existingInterestsId) {
-        // Update existing interests
+       
         this.resumeService.updateInterests(this.existingInterestsId, interestsData).subscribe({
           next: () => alert('Interests updated successfully!'),
           error: (err) => console.error('Failed to update interests:', err)
         });
       } else {
-        // Create new interests entry
+        
         this.resumeService.createInterests(this.userId, interestsData).subscribe({
           next: (response) => {
             alert('Interests created successfully!');

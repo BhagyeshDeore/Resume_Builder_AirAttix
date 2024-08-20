@@ -71,13 +71,13 @@ export class ExperienceComponent implements OnInit {
       const experiencesData = { userId: this.userId, experience: formExperiences };
 
       if (this.existingExperienceId) {
-        // Update existing experiences
+        
         this.resumeService.updateExperience(this.existingExperienceId, experiencesData).subscribe({
           next: () => alert('Experiences updated successfully!'),
           error: (err) => console.error('Failed to update experiences:', err)
         });
       } else {
-        // Create new experiences entry
+        
         this.resumeService.createExperience(this.userId, experiencesData).subscribe({
           next: (response) => {
             alert('Experiences created successfully!');

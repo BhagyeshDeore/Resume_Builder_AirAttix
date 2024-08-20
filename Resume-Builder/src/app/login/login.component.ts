@@ -32,11 +32,11 @@ export class LoginComponent {
       this.authService.login({ email, password }).subscribe((user: any) => {
         if (user) {
           console.log('Login successful:', user);
-          this.router.navigate(["/personal-info"])
-          // Handle successful login logic here
+          this.router.navigate(["/personal-info"]);
+          
         } else {
           console.error('Login failed.');
-          // Handle login failure logic here
+          alert("Invalid Credentials");
         }
       });
     }

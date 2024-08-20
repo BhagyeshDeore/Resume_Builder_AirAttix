@@ -47,8 +47,8 @@ export class EducationComponent implements OnInit {
         if (data && data.length > 0) {
           const educationData = data.find(item => item.userId === this.userId);
           if (educationData && educationData.education) {
-            this.existingEducationId = educationData.id; // Store the ID for updates
-            this.education.clear(); // Clear existing form array
+            this.existingEducationId = educationData.id;
+            this.education.clear(); 
             educationData.education.forEach((education: any) => {
               this.education.push(this.fb.group(education));
             });
@@ -65,13 +65,12 @@ export class EducationComponent implements OnInit {
       const educationData = { userId: this.userId, education: formEducation };
 
       if (this.existingEducationId) {
-        // Update existing education
         this.resumeService.updateEducation(this.existingEducationId, educationData).subscribe({
           next: () => alert('Education updated successfully!'),
           error: (err) => console.error('Failed to update education:', err)
         });
       } else {
-        // Create new education entry
+      
         this.resumeService.createEducation(this.userId, educationData).subscribe({
           next: (response) => {
             alert('Education created successfully!');

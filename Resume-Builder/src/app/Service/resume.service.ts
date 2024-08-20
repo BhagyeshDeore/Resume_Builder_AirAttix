@@ -7,11 +7,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ResumeService {
-   userString = localStorage.getItem('user'); 
-user = this.userString ? JSON.parse(this.userString) : null;
 
-// Safely access the user ID
- userId: string = this.user ? this.user.id : '';
+ userId: string = this.authService.getUserId();
 
   private baseUrl = 'http://localhost:3000'; 
   
@@ -99,8 +96,17 @@ user = this.userString ? JSON.parse(this.userString) : null;
     return this.http.post<any>(`${this.baseUrl}/skills`, { userId, skills });
   }
 
-  deleteSkill(id: string): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/skills/${id}`);
+  deleteSkillByName(userId: string, skillName: string) {
+    return this.getSkills(userId).pipe(
+      switchMap((data: any[]) => {
+        const userSkills = data.find(item => item.userId === userId);
+        if (userSkills) {
+          const updatedSkills = userSkills.skills.filter((skill: { name: string; }) => skill.name !== skillName);
+          return this.updateSkills(userSkills.id, userId, updatedSkills); // update with filtered skills
+        }
+        return of(null); // or handle if userSkills is not found
+      })
+    );
   }
   getLanguages(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/languages?userId=${userId}`);

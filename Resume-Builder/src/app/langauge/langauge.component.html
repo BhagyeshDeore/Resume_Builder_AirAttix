@@ -1,4 +1,4 @@
-<p>Languages work!</p>
+
 <div class="container mt-4">
   <div class="form-container rounded p-4 shadow">
     <h2 class="text-center">Languages</h2>
@@ -19,15 +19,6 @@
             >
           </div>
           <div class="mb-3">
-            <label for="description{{i}}" class="form-label">Description</label>
-            <textarea 
-              id="description{{i}}" 
-              formControlName="description" 
-              class="form-control" 
-              placeholder="Enter language description"
-            ></textarea>
-          </div>
-          <div class="mb-3">
             <label for="level{{i}}" class="form-label">Proficiency Level</label>
             <input 
               type="text" 
@@ -37,6 +28,16 @@
               placeholder="Enter proficiency level"
             >
           </div>
+          <div class="mb-3">
+            <label for="description{{i}}" class="form-label">Description</label>
+            <textarea 
+              id="description{{i}}" 
+              formControlName="description" 
+              class="form-control" 
+              placeholder="Enter language description"
+            ></textarea>
+          </div>
+          
           <button type="button" class="btn btn-danger" (click)="removeLanguage(i)">Remove</button>
         </div>
       </div>

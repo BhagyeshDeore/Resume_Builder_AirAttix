@@ -8,10 +8,12 @@ import { ResumeService } from '../Service/resume.service';
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent implements OnInit {
+
   skillForm: FormGroup;
   existingSkills: any[] = [];
   userId: string = this.resumeService.userId;
   existingSkillsId: string | null = null;
+skillNameToRemove: any;
 
   constructor(private fb: FormBuilder, private resumeService: ResumeService) {
     this.skillForm = this.fb.group({
@@ -35,10 +37,10 @@ export class SkillComponent implements OnInit {
     }));
   }
 
-  removeSkill(index: number): void {
-    this.skills.removeAt(index);
-  }
-
+  removeSkill(_t15: number) {
+    throw new Error('Method not implemented.');
+    }
+  
   loadSkills(): void {
     this.resumeService.getSkills(this.userId).subscribe({
       next: (data) => {

@@ -62,13 +62,13 @@ export class LangaugeComponent implements OnInit {
       const languagesData = { userId: this.userId, languages: formLanguages };
 
       if (this.existingLanguagesId) {
-        // Update existing languages
+      
         this.resumeService.updateLanguages(this.existingLanguagesId, languagesData).subscribe({
           next: () => alert('Languages updated successfully!'),
           error: (err) => console.error('Failed to update languages:', err)
         });
       } else {
-        // Create new languages entry
+        
         this.resumeService.createLanguages(this.userId, languagesData).subscribe({
           next: (response) => {
             alert('Languages created successfully!');

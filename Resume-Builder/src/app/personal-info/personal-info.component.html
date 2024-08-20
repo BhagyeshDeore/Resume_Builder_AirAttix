@@ -3,74 +3,84 @@
     <h2 class="text-center">Personal Information</h2>
     <br>
     <form [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()">
-      
+
       <!-- Full Name -->
       <div class="mb-3">
         <label for="fullName" class="form-label">Full Name</label>
-        <input 
-          type="text" 
-          id="fullName" 
-          formControlName="fullName" 
-          class="form-control" 
-          placeholder="Enter your full name"
-        >
-        <div *ngIf="personalInfoForm.get('fullName')?.invalid && personalInfoForm.get('fullName')?.touched" class="text-danger">
-          <small *ngIf="personalInfoForm.get('fullName')?.errors?.['required']">Full Name is required.</small>
+        <input
+          type="text"
+          id="fullName"
+          formControlName="fullName"
+          class="form-control"
+          placeholder="Enter your full name">
+        <div
+          *ngIf="personalInfoForm.get('fullName')?.invalid && personalInfoForm.get('fullName')?.touched"
+          class="text-danger">
+          <small
+            *ngIf="personalInfoForm.get('fullName')?.errors?.['required']">Full
+            Name is required.</small>
         </div>
       </div>
 
       <!-- Email -->
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input 
-          type="email" 
-          id="email" 
-          formControlName="email" 
-          class="form-control" 
-          placeholder="Enter your email"
-        >
-        <div *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched" class="text-danger">
-          <small *ngIf="personalInfoForm.get('email')?.errors?.['required']">Email is required.</small>
-          <small *ngIf="personalInfoForm.get('email')?.errors?.['email']">Invalid email format.</small>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Enter your email">
+        <div
+          *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched"
+          class="text-danger">
+          <small
+            *ngIf="personalInfoForm.get('email')?.errors?.['required']">Email is
+            required.</small>
+          <small
+            *ngIf="personalInfoForm.get('email')?.errors?.['email']">Invalid
+            email format.</small>
         </div>
       </div>
 
       <!-- Phone -->
       <div class="mb-3">
         <label for="phone" class="form-label">Phone</label>
-        <input 
-          type="tel" 
-          id="phone" 
-          formControlName="phone" 
-          class="form-control" 
-          placeholder="Enter your phone number"
-        >
+        <input
+          type="tel"
+          id="phone"
+          formControlName="phone"
+          class="form-control"
+          placeholder="Enter your phone number">
       </div>
 
       <!-- Location -->
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
-        <input 
-          type="text" 
-          id="location" 
-          formControlName="location" 
-          class="form-control" 
-          placeholder="Enter your location"
-        >
+        <input
+          type="text"
+          id="location"
+          formControlName="location"
+          class="form-control"
+          placeholder="Enter your location">
       </div>
 
       <!-- Summary -->
       <div class="mb-3">
         <label for="summary" class="form-label">Summary</label>
-        <textarea 
-          id="summary" 
-          formControlName="summary" 
-          class="form-control" 
-          placeholder="Enter a brief summary"></textarea>
+        <textarea
+          id="summary"
+          formControlName="summary"
+          class="form-control"
+          placeholder="Enter a brief summary"
+          style="width: 100%; height: 150px;">
+      </textarea>
+
       </div>
 
       <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary w-100" [disabled]="personalInfoForm.invalid">Save</button>
+      <button type="submit" class="btn btn-primary w-100"
+        [disabled]="personalInfoForm.invalid">Save</button>
     </form>
   </div>
 </div>

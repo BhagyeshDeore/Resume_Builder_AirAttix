@@ -1,11 +1,24 @@
 .container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
+ 
+    background-color: rgb(204, 183, 183);
+    width: 500px;
+    height: 350px;
   }
-  
+
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .form-group {
+   
     margin-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .btn{
+    display: flex;
+    justify-content: center;
   }
   
   .invalid-feedback {

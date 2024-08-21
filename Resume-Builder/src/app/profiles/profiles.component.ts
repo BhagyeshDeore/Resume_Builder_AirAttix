@@ -35,25 +35,35 @@ export class ProfilesComponent implements OnInit {
   }
 
   removeProfile(index: number): void {
-    const profile = this.profiles.at(index).value;
-    if (profile.url) {
-      this.resumeService.deleteProfileByUrl(profile.url).subscribe({
-        next: () => {
-          this.profiles.removeAt(index);
-          alert('Profile removed successfully!');
-        },
-        error: (err) => console.error('Failed to remove profile by URL:', err)
-      });
-    } else {
-      this.profiles.removeAt(index);
-    }
+  
+    this.resumeService.getProfiles(this.userId).subscribe({
+      next: (data) => {
+        const profileData = data.find(item => item.userId === this.userId);
+        if (profileData) {
+          
+          const updatedProfiles = profileData.profiles.filter((_: any, i: number) => i !== index);
+  
+         
+          this.resumeService.updateProfiles(profileData.id, this.userId, updatedProfiles).subscribe({
+            next: () => {
+          
+              this.profiles.removeAt(index);
+              alert('Profile removed successfully!');
+            },
+            error: (err) => console.error('Failed to update profiles:', err)
+          });
+        }
+      },
+      error: (err) => console.error('Failed to load profiles:', err)
+    });
   }
-
+  
+  
+  
   loadProfiles(): void {
     this.resumeService.getProfiles(this.userId).subscribe({
       next: (data) => {
         if (data && data.length > 0) {
-          // Extract profiles from the received data
           const profilesData = data.find(item => item.userId === this.userId);
           if (profilesData && profilesData.profiles) {
             this.existingProfiles = profilesData.profiles;
@@ -74,8 +84,8 @@ export class ProfilesComponent implements OnInit {
 
       if (this.existingProfileId) {
         // Update existing profiles
-        const updatedProfiles = { userId: this.userId, profiles: formProfiles };
-        this.resumeService.updateProfiles(this.existingProfileId, updatedProfiles).subscribe({
+        const updatedProfiles = formProfiles ;
+        this.resumeService.updateProfiles(this.existingProfileId,this.userId,  updatedProfiles).subscribe({
           next: () => alert('Profiles updated successfully!'),
           error: (err) => console.error('Failed to update profiles:', err)
         });

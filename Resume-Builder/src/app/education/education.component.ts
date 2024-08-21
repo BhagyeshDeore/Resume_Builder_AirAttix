@@ -9,7 +9,7 @@ import { ResumeService } from '../Service/resume.service';
 })
 export class EducationComponent implements OnInit {
   educationForm: FormGroup;
-  userId : string = this.resumeService.userId;
+  userId: string = this.resumeService.userId;
   existingEducationId: string | null = null;
 
   constructor(private fb: FormBuilder, private resumeService: ResumeService) {
@@ -38,7 +38,27 @@ export class EducationComponent implements OnInit {
   }
 
   removeEducation(index: number): void {
-    this.education.removeAt(index);
+    // Retrieve all education entries for the user
+    this.resumeService.getEducation(this.userId).subscribe({
+      next: (data) => {
+        const educationData = data.find(item => item.userId === this.userId);
+        if (educationData) {
+          // Filter out the education entry to be removed by index
+          const updatedEducation = educationData.education.filter((_: any, i: number) => i !== index);
+  
+          // Update the server with the new education array
+          this.resumeService.updateEducation(educationData.id, this.userId, { education: updatedEducation }).subscribe({
+            next: () => {
+              // Remove the education entry from the form array by index
+              this.education.removeAt(index);
+              alert('Education removed successfully!');
+            },
+            error: (err) => console.error('Failed to update education:', err)
+          });
+        }
+      },
+      error: (err) => console.error('Failed to load education:', err)
+    });
   }
 
   loadEducation(): void {
@@ -65,12 +85,11 @@ export class EducationComponent implements OnInit {
       const educationData = { userId: this.userId, education: formEducation };
 
       if (this.existingEducationId) {
-        this.resumeService.updateEducation(this.existingEducationId, educationData).subscribe({
+        this.resumeService.updateEducation(this.existingEducationId, this.userId, educationData).subscribe({
           next: () => alert('Education updated successfully!'),
           error: (err) => console.error('Failed to update education:', err)
         });
       } else {
-      
         this.resumeService.createEducation(this.userId, educationData).subscribe({
           next: (response) => {
             alert('Education created successfully!');

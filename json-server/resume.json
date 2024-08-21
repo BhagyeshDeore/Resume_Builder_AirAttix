@@ -78,11 +78,11 @@
       "profiles": [
         {
           "platform": "LinkedIn",
-          "url": "https://www.linkedin.com/in/bhagyesh-deore-04b81b208/?originalSubdomain=in"
+          "url": "https://www.linkedin.com/in/bhagyesh-deore-04b81b208"
         },
         {
-          "platform": "GitHub",
-          "url": "https://github.com/BhagyeshDeore"
+          "platform": "Github",
+          "url": "http://github.com/BhagyeshDeore"
         }
       ],
       "id": "4e4e"
@@ -224,16 +224,6 @@
           "name": "MySQL",
           "description": "Relational database management system",
           "level": "Intermediate"
-        },
-        {
-          "name": "MongoDB",
-          "description": "NoSQL database",
-          "level": "Intermediate"
-        },
-        {
-          "name": "Problem Solving",
-          "description": "Analytical skill",
-          "level": "Expert"
         }
       ],
       "id": "8q93"

@@ -36,33 +36,25 @@ export class ResumeService {
     return this.http.get<any[]>(`${this.baseUrl}/profiles?userId=${userId}`);
   }
 
-  updateProfiles(profileId: string, profiles: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/profiles/${profileId}`, profiles);
+  updateProfiles(profileId: string, userId: string, profiles: any[]): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/profiles/${profileId}`, { userId, profiles });
   }
+  
 
   createProfiles(userId: string, profiles: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/profiles`, profiles);
   }
 
-  deleteProfileByUrl(url: string): Observable<void> {
-    return this.http.get<any[]>(`${this.baseUrl}/profiles?url=${url}`).pipe(
-      switchMap((profiles) => {
-        if (profiles.length > 0) {
-          const profileId = profiles[0].id; // Assuming URL is unique and only one profile is found
-          return this.http.delete<void>(`${this.baseUrl}/profiles/${profileId}`);
-        }
-        return of(undefined); // Return an empty observable if no profile is found
-      })
-    );
-  }
+  
 
   getExperience(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/experience?userId=${userId}`);
   }
 
-  updateExperience(experienceId: string, experienceData: any): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/experience/${experienceId}`, experienceData);
+  updateExperience(id: string, userId: string, experienceData: any): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/experience/${id}`, { userId, ...experienceData });
   }
+  
 
   createExperience(userId: string, experienceData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/experience`, experienceData);
@@ -75,10 +67,9 @@ export class ResumeService {
     return this.http.get<any[]>(`${this.baseUrl}/education?userId=${userId}`);
   }
 
-  updateEducation(id: string, educationData: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/education/${id}`, educationData);
+  updateEducation(id: string, userId: string, educationData: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/education/${id}`, { userId, ...educationData });
   }
-
   
   createEducation(userId: string, educationData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/education`, educationData);
@@ -96,18 +87,7 @@ export class ResumeService {
     return this.http.post<any>(`${this.baseUrl}/skills`, { userId, skills });
   }
 
-  deleteSkillByName(userId: string, skillName: string) {
-    return this.getSkills(userId).pipe(
-      switchMap((data: any[]) => {
-        const userSkills = data.find(item => item.userId === userId);
-        if (userSkills) {
-          const updatedSkills = userSkills.skills.filter((skill: { name: string; }) => skill.name !== skillName);
-          return this.updateSkills(userSkills.id, userId, updatedSkills); // update with filtered skills
-        }
-        return of(null); // or handle if userSkills is not found
-      })
-    );
-  }
+  
   getLanguages(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/languages?userId=${userId}`);
   }
@@ -143,6 +123,7 @@ export class ResumeService {
   updateProjects(projectsId: string, projectsData: any): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/projects/${projectsId}`, projectsData);
   }
+  
 
   createProjects(userId: string, projectsData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/projects`, projectsData);

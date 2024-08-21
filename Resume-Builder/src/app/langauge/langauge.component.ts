@@ -35,7 +35,26 @@ export class LangaugeComponent implements OnInit {
   }
 
   removeLanguage(index: number): void {
-    this.languages.removeAt(index);
+    this.resumeService.getLanguages(this.userId).subscribe({
+      next: (data) => {
+        const languageData = data.find(item => item.userId === this.userId);
+        if (languageData) {
+          
+          const updatedLanguages = languageData.languages.filter((_: any, i: number) => i !== index);
+
+          
+          this.resumeService.updateLanguages(languageData.id, { userId: this.userId, languages: updatedLanguages }).subscribe({
+            next: () => {
+              
+              this.languages.removeAt(index);
+              alert('Language removed successfully!');
+            },
+            error: (err) => console.error('Failed to update languages:', err)
+          });
+        }
+      },
+      error: (err) => console.error('Failed to load languages:', err)
+    });
   }
 
   loadLanguages(): void {

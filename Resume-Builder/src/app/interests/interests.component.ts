@@ -33,7 +33,26 @@ export class InterestsComponent implements OnInit {
   }
 
   removeInterest(index: number): void {
-    this.interests.removeAt(index);
+    this.resumeService.getInterests(this.userId).subscribe({
+      next: (data) => {
+        const interestData = data.find(item => item.userId === this.userId);
+        if (interestData) {
+          
+          const updatedInterests = interestData.interests.filter((_: any, i: number) => i !== index);
+
+          
+          this.resumeService.updateInterests(interestData.id, { userId: this.userId, interests: updatedInterests }).subscribe({
+            next: () => {
+             
+              this.interests.removeAt(index);
+              alert('Interest removed successfully!');
+            },
+            error: (err) => console.error('Failed to update interests:', err)
+          });
+        }
+      },
+      error: (err) => console.error('Failed to load interests:', err)
+    });
   }
 
   loadInterests(): void {

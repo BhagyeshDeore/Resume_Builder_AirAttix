@@ -37,7 +37,25 @@ export class ProjectsComponent implements OnInit {
   }
 
   removeProject(index: number): void {
-    this.projects.removeAt(index);
+    this.resumeService.getProjects(this.userId).subscribe({
+      next: (data) => {
+        const projectData = data.find(item => item.userId === this.userId);
+        if (projectData) {
+          
+          const updatedProjects = projectData.projects.filter((_: any, i: number) => i !== index);
+
+     
+          this.resumeService.updateProjects(projectData.id, { userId: this.userId, projects: updatedProjects }).subscribe({
+            next: () => {
+              this.projects.removeAt(index);
+              alert('Project removed successfully!');
+            },
+            error: (err) => console.error('Failed to update projects:', err)
+          });
+        }
+      },
+      error: (err) => console.error('Failed to load projects:', err)
+    });
   }
 
   loadProjects(): void {
@@ -46,8 +64,8 @@ export class ProjectsComponent implements OnInit {
         if (data && data.length > 0) {
           const projectData = data.find(item => item.userId === this.userId);
           if (projectData && projectData.projects) {
-            this.existingProjectsId = projectData.id; // Store the ID for updates
-            this.projects.clear(); // Clear existing form array
+            this.existingProjectsId = projectData.id; 
+            this.projects.clear(); 
             projectData.projects.forEach((project: any) => {
               this.projects.push(this.fb.group(project));
             });
@@ -64,17 +82,17 @@ export class ProjectsComponent implements OnInit {
       const projectsData = { userId: this.userId, projects: formProjects };
 
       if (this.existingProjectsId) {
-        // Update existing projects
+       
         this.resumeService.updateProjects(this.existingProjectsId, projectsData).subscribe({
           next: () => alert('Projects updated successfully!'),
           error: (err) => console.error('Failed to update projects:', err)
         });
       } else {
-        // Create new projects entry
+       
         this.resumeService.createProjects(this.userId, projectsData).subscribe({
           next: (response) => {
             alert('Projects created successfully!');
-            this.existingProjectsId = response.id; // Update the ID for future use
+            this.existingProjectsId = response.id; 
           },
           error: (err) => console.error('Failed to create projects:', err)
         });

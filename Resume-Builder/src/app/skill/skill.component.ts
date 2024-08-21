@@ -13,7 +13,7 @@ export class SkillComponent implements OnInit {
   existingSkills: any[] = [];
   userId: string = this.resumeService.userId;
   existingSkillsId: string | null = null;
-skillNameToRemove: any;
+
 
   constructor(private fb: FormBuilder, private resumeService: ResumeService) {
     this.skillForm = this.fb.group({
@@ -32,20 +32,44 @@ skillNameToRemove: any;
   addSkill(): void {
     this.skills.push(this.fb.group({
       name: ['', Validators.required],
-      description: [''],
-      level: ['']
+      description: ['', Validators.required],
+      level: ['', Validators.required]
     }));
   }
 
-  removeSkill(_t15: number) {
-    throw new Error('Method not implemented.');
-    }
+  removeSkill(index: number): void {
+    const skillToRemove = this.skills.at(index).value;
+  
+    this.resumeService.getSkills(this.userId).subscribe({
+      next: (data) => {
+        const skillData = data.find(item => item.userId === this.userId);
+        if (skillData) {
+         
+          const updatedSkills = skillData.skills.filter((skill: any) =>
+            skill.name !== skillToRemove.name ||
+            skill.description !== skillToRemove.description ||
+            skill.level !== skillToRemove.level
+          );
+  
+          
+          this.resumeService.updateSkills(skillData.id, this.userId, updatedSkills).subscribe({
+            next: () => {
+              this.skills.removeAt(index);
+              alert('Skill removed successfully!');
+            },
+            error: (err) => console.error('Failed to update skills:', err)
+          });
+        }
+      },
+      error: (err) => console.error('Failed to load skills:', err)
+    });
+  }
+  
   
   loadSkills(): void {
     this.resumeService.getSkills(this.userId).subscribe({
       next: (data) => {
         if (data && data.length > 0) {
-          // Extract skills data and store the ID for updating later
           const skillData = data.find(item => item.userId === this.userId);
           if (skillData) {
             this.existingSkills = skillData.skills || [];
@@ -65,17 +89,15 @@ skillNameToRemove: any;
       const formSkills = this.skillForm.value.skills;
 
       if (this.existingSkillsId) {
-        // Update existing skills
         this.resumeService.updateSkills(this.existingSkillsId, this.userId, formSkills).subscribe({
           next: () => alert('Skills updated successfully!'),
           error: (err) => console.error('Failed to update skills:', err)
         });
       } else {
-        // Create new skills entry
         this.resumeService.createSkills(this.userId, formSkills).subscribe({
           next: (response) => {
             alert('Skills created successfully!');
-            this.existingSkillsId = response.id; // Update the ID for future use
+            this.existingSkillsId = response.id;
           },
           error: (err) => console.error('Failed to create skills:', err)
         });

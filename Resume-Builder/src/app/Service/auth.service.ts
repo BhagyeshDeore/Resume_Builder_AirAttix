@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -9,8 +9,11 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
+  private authStateSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
 
-  constructor(private http: HttpClient ,private router : Router) {}
+  authState$ = this.authStateSubject.asObservable();
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('user');
@@ -23,6 +26,7 @@ export class AuthService {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           console.log("User found and stored in localStorage:", JSON.stringify(user));
+          this.authStateSubject.next(true); // Notify about login
           return user;
         } else {
           console.error("Invalid credentials.");
@@ -36,20 +40,18 @@ export class AuthService {
     );
   }
 
- 
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}`, userData);
   }
 
-  
   getUserId(): string {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user).id : '';
   }
 
-  
   logout(): void {
     localStorage.removeItem('user');
+    this.authStateSubject.next(false); // Notify about logout
     this.router.navigate(["/login"]);
   }
 }
